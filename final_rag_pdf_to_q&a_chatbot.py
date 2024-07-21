@@ -7,12 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/1NPBdK9X0q5Xovx2MRTmgjt6mNSpNxZWo
 """
 
-from google.colab import userdata
 import os
-HUGGINGFACEHUB_API_TOKEN=userdata.get('HUGGINGFACEHUB')
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
-HF_TOKEN=userdata.get('HF_TOKEN')
-os.environ["HF_TOKEN"] = HF_TOKEN
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 
 from torch import cuda, bfloat16
 import torch
@@ -43,7 +40,6 @@ bnb_config = transformers.BitsAndBytesConfig(
 
 print(device)
 
-import os
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 model_config = transformers.AutoConfig.from_pretrained(
