@@ -1,4 +1,5 @@
 PDF-to-Chat-Q-A
+
 This project aims to develop a chatbot that utilises generative AI, specifically the fine-tuned model Zephyr-7B to allow users to upload multiple PDF files and ask questions to the AI model about their domain specific PDFs and get quick answers. This is useful if the data to be read by the user is very large and they require the assistance of an AI model.
 The code involves multiple technologies, languages, and techniques for building a PDF-based question-answering application. Here’s a breakdown of each:
 
