@@ -215,5 +215,3 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 # else:
 #     st.write("Please upload a PDF file to continue.")
 
-!wget -q -O - ipv4.icanhazip.com
-!streamlit run app.py & npx localtunnel --port 8501
