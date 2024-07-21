@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1NPBdK9X0q5Xovx2MRTmgjt6mNSpNxZWo
 """
 
-!pip install streamlit python-dotenv PyPDF2 langchain langchain_community faiss-cpu sentence-transformers
-
-!pip install bitsandbytes accelerate langchain-huggingface
-
 from google.colab import userdata
 import os
 HUGGINGFACEHUB_API_TOKEN=userdata.get('HUGGINGFACEHUB')
@@ -63,8 +59,6 @@ model = transformers.AutoModelForCausalLM.from_pretrained(
     device_map='auto',
 )
 tokenizer = AutoTokenizer.from_pretrained(model_id)
-
-!pip install PyPDF2
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
