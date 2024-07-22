@@ -8,6 +8,7 @@ Original file is located at
 """
 
 import os
+load_dotenv() 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 
