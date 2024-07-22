@@ -46,36 +46,18 @@ print(device)
 
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
-#model_config = transformers.AutoConfig.from_pretrained(
- #  model_id,
-  #  trust_remote_code=True,
- #   max_new_tokens=1024
-#)
-#model = transformers.AutoModelForCausalLM.from_pretrained(
- #   model_id,
-  #  trust_remote_code=True,
-  #  config=model_config,
-  #  quantization_config=bnb_config,
-   # device_map='auto',
-#)*/
-model_config = {"trust_remote_code": True, "max_new_tokens": 1024}
-
-try:
-    model = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        trust_remote_code=True,
-        config=model_config,
-        device_map="auto" if torch.cuda.is_available() else None
-    )
-    model.to(device)
-except RuntimeError as e:
-    print(f"RuntimeError: {e}")
-    print("Falling back to a CPU-compatible model.")
-    model = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        trust_remote_code=True,
-        config=model_config
-    )
+model_config = transformers.AutoConfig.from_pretrained(
+    model_id,
+    trust_remote_code=True,
+    max_new_tokens=1024
+)
+model = transformers.AutoModelForCausalLM.from_pretrained(
+     model_id,
+     trust_remote_code=True,
+     config=model_config,
+     quantization_config=bnb_config,
+     device_map='auto',
+)*/
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
 # Commented out IPython magic to ensure Python compatibility.
